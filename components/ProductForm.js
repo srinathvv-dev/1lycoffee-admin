@@ -39,8 +39,7 @@ export default function ProductForm({
       await axios.put('/api/products', {...data,_id});
     } else {
       //create
-      await axios.post('/api/products', data);
-    }
+      await axios.post('/api/products', {...data, category: "6634c8ef66c723b3117cb25f"});    }
     setGoToProducts(true);
   }
   if (goToProducts) {
@@ -94,7 +93,7 @@ export default function ProductForm({
         <label>Category</label>
         <select value={category}
                 onChange={ev => setCategory(ev.target.value)}>
-          <option value="">Uncategorized</option>
+          {/* <option value="">Uncategorized</option> */}
           {categories.length > 0 && categories.map(c => (
             <option key={c._id} value={c._id}>{c.name}</option>
           ))}
